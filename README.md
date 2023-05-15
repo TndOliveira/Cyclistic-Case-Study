@@ -95,7 +95,7 @@ With the business task defined, I will create a report with the following delive
 <br />
 
 
-You can find the report in this repository! [Click here]()
+You can find the report in this repository! [Click here](https://github.com/TndOliveira/Cyclistic-Case-Study/blob/main/report/Cyclistic-Bike-Share-Report.pdf)
 
 
 <br />
