@@ -453,7 +453,7 @@ Installing the packages
 
 
 ```{r installing packages, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
-# installing packages tidyverse, janitor, skirm, lubridate e ggplot
+# installing packages tidyverse, janitor, skimr, lubridate e ggplot
 install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 install.packages("janitor", repos = "http://cran.us.r-project.org")
 install.packages("skimr", repos = "http://cran.us.r-project.org")
@@ -472,7 +472,7 @@ Loading the packages
 
 
 ```{r loading the packages, echo=TRUE, message=FALSE, warning=FALSE}
-# loading packages tidyverse, janitor, skirm, lubridate e ggplot2
+# loading packages tidyverse, janitor, skimr, lubridate e ggplot2
 library("tidyverse")
 library("janitor")
 library("skimr")
@@ -837,7 +837,7 @@ tripdata <- tripdata %>%
 
 <p>
 <font size="3" face="helvetica">
-The values in month and day_of_week are in Portuguese. So I will translate them into English.
+The values in month and day_of_week are in Portuguese. So, I will translate them into English.
 </font>
 </p>
 
@@ -1674,7 +1674,7 @@ Summary of the Analysis
 
 <p>
 <font size="3" face="helvetica">
-In the fifth data analysis process step - Share, after I have gained the insights in the previous step, I will create compelling data visualizations to share my findings. So I will summarize the results using clear and attractive visuals to help stakeholders understand the problem's solution.
+In the fifth data analysis process step - Share, after I have gained the insights in the previous step, I will create compelling data visualizations to share my findings. So, I will summarize the results using clear and attractive visuals to help stakeholders understand the problem's solution.
 </font>
 </p>
 
@@ -1726,11 +1726,11 @@ tripdata_v2 %>%
   group_by(member_casual) %>%
   summarise(number_of_rides = n()) %>%
   ggplot(aes(x = member_casual, y = number_of_rides, fill = member_casual)) +
-  geom_col(position = 'dodge') +
-  labs(title="Total number of rides by user type",
-       caption = "Source: Motivate International Inc.",
-       x = "Member vs Casual", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = 'dodge') +
+    labs(title="Total number of rides by user type",
+    caption = "Source: Motivate International Inc.",
+    x = "Member vs Casual", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -1762,12 +1762,12 @@ tripdata_v2 %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
   arrange(member_casual, month) %>%
   ggplot(aes(x = month, y = number_of_rides, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  theme(axis.text.x = element_text(angle = 45)) +
-  labs(title = "Number of rides by month",
-       caption = "Source: Motivate International Inc.", 
-       x = "Month", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = "dodge") +
+    theme(axis.text.x = element_text(angle = 45)) +
+    labs(title = "Number of rides by month",
+    caption = "Source: Motivate International Inc.", 
+    x = "Month", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -1803,11 +1803,11 @@ tripdata_v2 %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
   arrange(member_casual, day_of_week) %>%
   ggplot(aes(x = day_of_week, y = number_of_rides, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  labs(title = "Number of rides by weekday",
-  caption = "Source: Motivate International Inc.", 
-  x = "Weekday", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = "dodge") +
+    labs(title = "Number of rides by weekday",
+    caption = "Source: Motivate International Inc.", 
+    x = "Weekday", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -1839,11 +1839,11 @@ tripdata_v2 %>%
   group_by(member_casual, start_hour) %>%
   summarise(number_of_rides = n()) %>%
   ggplot(aes(x = start_hour, y = number_of_rides, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  labs(title = "Number of rides by start hour",
-       caption = "Source: Motivate International Inc.",
-       x = "Hour", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = "dodge") +
+    labs(title = "Number of rides by start hour",
+    caption = "Source: Motivate International Inc.",
+    x = "Hour", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 <p>
@@ -1874,12 +1874,12 @@ tripdata_v2 %>%
   group_by(member_casual, month) %>%
   summarise(average_ride_length = mean(ride_length)) %>%
   ggplot(aes(x = month, y = average_ride_length, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  theme(axis.text.x = element_text(angle = 45)) +
-  labs(title = "Average ride length by month",
-       caption = "Source: Motivate International Inc.", 
-       x = "Month", y = "Average Ride Length (sec)", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = "dodge") +
+    theme(axis.text.x = element_text(angle = 45)) +
+    labs(title = "Average ride length by month",
+    caption = "Source: Motivate International Inc.", 
+    x = "Month", y = "Average Ride Length (sec)", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -1912,11 +1912,11 @@ tripdata_v2 %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
   arrange(member_casual, day_of_week) %>%
   ggplot(aes(x = day_of_week, y = average_duration, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  labs(title = "Average ride length by weekday",
-  caption = "Source: Motivate International Inc.", 
-  x = "Weekday", y = "Average Ride Length (sec)", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    geom_col(position = "dodge") +
+    labs(title = "Average ride length by weekday",
+    caption = "Source: Motivate International Inc.", 
+    x = "Weekday", y = "Average Ride Length (sec)", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -1949,11 +1949,11 @@ tripdata_v2 %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
   ggplot(aes(x=member_casual, y=number_of_rides, fill=member_casual)) +
     geom_col(position = "dodge") +
-  facet_wrap(~rideable_type) +
-  labs(title = "Number of rides by bicycle type",
-       caption = "Source: Motivate International Inc.",
-       x = "Member Casual", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+    facet_wrap(~rideable_type) +
+    labs(title = "Number of rides by bicycle type",
+    caption = "Source: Motivate International Inc.",
+    x = "Member Casual", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 <p>
@@ -1983,12 +1983,12 @@ Average ride length by bicycle type
 tripdata_v2 %>%
   group_by(member_casual, rideable_type) %>%
   summarise(average_ride_length = mean(ride_length)) %>%
-  ggplot(aes(x = rideable_type, y = average_ride_length, fill = member_casual)) +
-  geom_col(position = "dodge") +
-  labs(title = "Average ride length by bicycle type",
-       caption = "Source: Motivate International Inc.",
-       x = "Bicycle type", y = "Average Ride Length (sec)", fill = "User Type") +
-  scale_fill_manual(values = c("casual" = "#5DADE2", "member" = "#21618C"))
+    ggplot(aes(x = rideable_type, y = average_ride_length, fill = member_casual)) +
+    geom_col(position = "dodge") +
+    labs(title = "Average ride length by bicycle type",
+    caption = "Source: Motivate International Inc.",
+    x = "Bicycle type", y = "Average Ride Length (sec)", fill = "User Type") +
+    scale_fill_manual(values = c("casual" = "#5DADE2", "member" = "#21618C"))
 ```
 
 
@@ -2022,13 +2022,13 @@ tripdata_v2 %>%
   arrange(desc(number_of_rides)) %>%
   head(10) %>%
   ggplot(aes(x= reorder(start_station_name, number_of_rides), y=number_of_rides, fill=member_casual)) +
-  scale_y_continuous(breaks = seq(0, 60000, 9000)) +
-  geom_bar(stat = "identity") +
-  coord_flip() +
-  labs(title = "10 most used stations by casual",
-       caption = "Source: Motivate International Inc.",
-       x = "Station Name", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("casual" = "#5DADE2"))
+    scale_y_continuous(breaks = seq(0, 60000, 9000)) +
+    geom_bar(stat = "identity") +
+    coord_flip() +
+    labs(title = "10 most used stations by casual",
+    caption = "Source: Motivate International Inc.",
+    x = "Station Name", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("casual" = "#5DADE2"))
 ```
 
 
@@ -2064,13 +2064,13 @@ tripdata_v2 %>%
   arrange(desc(number_of_rides)) %>%
   head(10) %>%
   ggplot(aes(x= reorder(start_station_name, number_of_rides), y=number_of_rides, fill=member_casual)) +
-  scale_y_continuous(breaks = seq(0, 25000, 5000)) +
-  geom_bar(stat = "identity") +
-  coord_flip() +
-  labs(title = "10 most used stations by member",
-       caption = "Source: Motivate International Inc.",
-       x = "Station Name", y = "Number of Rides", fill = "User Type") +
-  scale_fill_manual(values = c ("member" = "#21618C"))
+    scale_y_continuous(breaks = seq(0, 25000, 5000)) +
+    geom_bar(stat = "identity") +
+    coord_flip() +
+    labs(title = "10 most used stations by member",
+    caption = "Source: Motivate International Inc.",
+    x = "Station Name", y = "Number of Rides", fill = "User Type") +
+    scale_fill_manual(values = c ("member" = "#21618C"))
 ```
 
 
