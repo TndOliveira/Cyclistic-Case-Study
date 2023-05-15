@@ -1,0 +1,2422 @@
+---
+title: "Cyclistic Bike Share Report"
+author: "Tauan Oliveira"
+date: "05-02-2023"
+output: word_document
+---
+
+
+<!-- Title -->
+
+
+<br />
+<br />
+<br />
+
+
+<h1 
+align="center"; style=font-family:helvetica><strong> Cyclistic Bike Share Report </strong>
+</h1>
+
+<h3 
+align="center"; style=font-family:helvetica> Tauan Oliveira
+</h3>
+
+<h3 
+align="center"; style=font-family:helvetica> 05-02-2023   
+</h3>
+
+
+<br />
+<br />
+<br />
+
+
+
+<!-- Introduction -->
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Introduction
+</h2>
+
+
+<br />
+
+
+<!-- Project Description-->
+
+
+<h3 style=font-family:helvetica><strong> Project Description </strong></h3><br />
+
+
+<p>
+<font size="3" face="helvetica">
+In this project, I will perform a case study available by [Projeto Final de Data Analytics do Google](https://www.coursera.org/learn/projeto-final-conclua-um-estudo-de-caso?specialization=analise-de-dados-do-google). In the project, I will be part of a marketing analyst team at Cyclistic, a fictional bike-share company in Chicago. The team will be responsible for understanding how casual riders and annual members use Cyclistic bikes differently. So, I will follow the steps of the data analysis process:<strong> ask, prepare, process, analyze, share, and act</strong>, to gain insights to answer the business task.
+</font>
+</p>
+
+
+<!-- Scenario -->
+
+
+<h3 style=font-family:helvetica><strong> Scenario </strong></h3><br />
+
+
+<p>
+<font size="3" face="helvetica"> 
+You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company's success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.
+</font>
+</p>
+
+<br />
+
+
+<!-- ASK -->
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Ask
+</h2>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+The first step in the data analysis process is the - Ask phase. To solve this problem, we must first define the business task, in other words, the question or problem that the data analysis will deal with, but firstly, we need to understand the whole context where the problem is embedded. In this way, we certify that we’re focusing on the problem to be solved.
+</font>
+</p>
+
+
+<br />
+
+
+<!-- Understanding the context -->
+
+
+<h3 style=font-family:helvetica><strong> Understanding the context </strong></h3><br />
+
+<p>
+<font size="3" face="helvetica">
+<Strong>Cyclistic</strong>: A bike-share program that features more than 5.800 bicycles and 600 docking stations. Cyclistic sets itself apart by also offering reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can't use a standard two-wheeled bike. The majority of riders opt for traditional bikes; about 8% of riders use the assistive options. Cyclistic users are more likely to ride for leisure, but about 30% use them to commute to work each day.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 geo-tracked and locked bikes within a network of 692 stations in Chicago. The bikes can be unlocked from one station and returned to any other station in the system at any time.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+Until now, Cyclistic's marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans; single-ride passes, full-day passes, and annual memberships. Customers that purchase single-ride or full-day passes refer to casual riders. Customers that purchase annual memberships are Cyclistic members.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+Cyclistic's finance analysts have concluded that annual members are much more profitable than casual passengers. Although the pricing flexibility helps Cyclistic attract customers, Lily Moreno believes that maximizing the number of annual members will be the key to future growth. Rather than creating a marketing campaign that targets new customers, she believes there is a good chance to convert casual passengers into members. She notes that casual cyclists are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs.
+</font>
+</p>
+
+
+<br />
+
+
+<!-- Stakeholders -->
+
+
+<h3 style=font-family:helvetica><strong> Stakeholders </strong></h3><br />
+
+<p>
+<font size="3" face="helvetica">
+
+ * <strong>Lily Moreno</strong>: The director of marketing and your manager. Moreno is responsible for the development of campaigns and initiatives to promote the bike-share program. These may include email, social media, and other channels.
+
+ * <strong>Cyclistic marketing analytics team</strong>: A team of data analysts who are responsible for collecting, analyzing, and reporting data that helps guide Cyclistic marketing strategy. You joined this team six months ago and have been busy learning about Cyclistic's mission and business goals - as well as how you, as a junior data analyst, can help Cyclistic achieve them.
+
+ * <strong>Cyclistic executive team</strong>: The notoriously detail-oriented executive team will  decide whether to approve the recommended marketing program.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to
+do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why
+casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are
+interested in analyzing the Cyclistic historical bike trip data to identify trends.
+</font>
+</p>
+
+
+<br />
+
+
+<!-- Questions -->
+
+
+<p>
+<font size="3" face="helvetica">
+<strong> 
+Three questions will guide the future marketing program:
+</strong>
+</font>
+</p>
+
+
+<p>
+<font size="3" face="helvetica">
+
+1. How do annual members and casual riders use Cyclistic bikes differently?
+2. Why should casual riders buy Cyclistic annual membership?
+3. How can Cyclistic use digital media to influence casual riders to become members?
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Moreno has assigned you the first question to answer: How do annual members and casual riders use Cyclistic bikes differently?
+</strong>
+</font>
+</p>
+
+<br />
+
+<p>
+<font size="3" face="helvetica">
+With the business task defined, I will create a report with the following deliverables:
+
+  1. A clear statement of the business task
+  2. A description of all data sources used
+  3. Documentation of any cleaning or manipulation of data
+  4. A summary of your analysis
+  5. Supporting visualizations and key findings
+  6. Your top three recommendations based on your analysis
+  
+</font>
+</p>
+
+
+<br />
+
+
+<!-- Business task -->
+
+
+<h3 style=font-family:helvetica><strong> Business task </strong></h3><br />
+
+<p>
+<font size="3" face="helvetica">
+Moreno has set the following business task: understand how annual members and casual riders use Cyclistic bikes differently, intending to create a new marketing strategy to convert casual riders into annual members.
+</font>
+</p>
+
+
+<br />
+
+
+<!-- PREPARE -->
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Prepare
+</h2>
+
+
+<br />
+
+
+<!-- Gathering data -->
+
+
+<p>
+<font size="3" face="helvetica">
+Now, we are in the second data analysis phase - Prepare. In this phase, I will collect data to perform the analysis. So, I will gather Cyclistic's trip historical data in the last 12 months.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+Download data and store it appropriately 
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+All data collected was stored in my kaggle account. Thus all the data is stored in the cloud to ensure data security.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+Identify how data it's organized
+</font>
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+The data is in .csv files (comma-separated values) and is organized in rows and columns, which means it is structured. All collected datasets are separate, each representing one specific month of a Cyclistic's trip historical data in the last 12 months.    
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+To make the data more accessible, I implemented naming conventions, foldering, and archiving of old files. But firstly, I met with the team to create a file that describes the project's naming convention for easy reference to avoid any confusion with the team.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+Classify and filter the data
+</font>
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Were selected trip data from the last 12 months. In this case, the most recent data available were from March 2022 to February 2023.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+Checking the data
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+The data collected are historical and inclusive. So, we haven't found any problems or biases.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+The data I have collected is internal, is proven fit for use, the validity of the data has been certified with the source, have critical information needed to find the solution, and the data is current. Therefore, regarding credibility, the data is reliable, original, comprehensive, actual, and cited.
+</font>
+</p>
+
+
+<p>
+<font size="3" face="helvetica">
+Examining the datasets, I confirm that the data is presented consistently with correct data types.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+The datasets don't have variables like genre, year of birth, and price plans. Having these variables, we could get more complete insights, but that doesn't stop us from performing the analysis.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+Data credibility
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+All the datasets provided by Cyclistic are public data and can be used to explore how different user types use Cyclistic's bikes. Moreover, it's secured that they're trustable, original, comprehensive, actual, and cited.
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+To ensure data privacy rider’s personally identifiable information won’t be published, preserving the passenger’s id.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong> 
+A description of all data sources used
+</strong></h3><br />
+
+<p>
+<font size="3" face="helvetica">
+The data sources contain historical trip data on Cyclistic (bike-sharing service) for the past 12 months, from March 2022 to February 2023, all located in the city of Chicago. In total, there are 12 datasets, each one representing a specific month with 13 columns. All the data has been made available by Motivate International Inc. by this [license](https://ride.divvybikes.com/data-license-agreement). The data are available through this [link](https://divvy-tripdata.s3.amazonaws.com/index.html).
+</font>
+</p>
+
+
+<br />
+
+
+<!-- Installing packages -->
+
+<h3>
+<font face="helvetica">
+<strong> 
+Setting the environment
+</strong></h3><br />
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Installing the packages
+</strong>
+</p>
+
+
+```{r installing packages, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
+# installing packages tidyverse, janitor, skirm, lubridate e ggplot
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+install.packages("janitor", repos = "http://cran.us.r-project.org")
+install.packages("skimr", repos = "http://cran.us.r-project.org")
+install.packages("lubridate", repos = "http://cran.us.r-project.org")
+install.packages("ggplot", repos = "http://cran.us.r-project.org")
+```
+
+
+<br />    
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Loading the packages
+</strong>
+
+
+```{r loading the packages, echo=TRUE, message=FALSE, warning=FALSE}
+# loading packages tidyverse, janitor, skirm, lubridate e ggplot2
+library("tidyverse")
+library("janitor")
+library("skimr")
+library("lubridate")
+library("ggplot2")
+```
+
+
+<br />
+
+
+<!-- Importing data -->
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Importing data
+</strong>
+<p>
+
+```{r importing data, echo=TRUE, message=TRUE, warning=TRUE, paged.print=TRUE}
+tripdata_2022_03 <- read.csv("2022-03_tripdata.csv")
+tripdata_2022_04 <- read.csv("2022-04_tripdata.csv")
+tripdata_2022_05 <- read.csv("2022-05_tripdata.csv")
+tripdata_2022_06 <- read.csv("2022-06_tripdata.csv")
+tripdata_2022_07 <- read.csv("2022-07_tripdata.csv")
+tripdata_2022_08 <- read.csv("2022-08_tripdata.csv")
+tripdata_2022_09 <- read.csv("2022-09_tripdata.csv")
+tripdata_2022_10 <- read.csv("2022-10_tripdata.csv")
+tripdata_2022_11 <- read.csv("2022-11_tripdata.csv")
+tripdata_2022_12 <- read.csv("2022-12_tripdata.csv")
+tripdata_2023_01 <- read.csv("2023-01_tripdata.csv")
+tripdata_2023_02 <- read.csv("2023-02_tripdata.csv")
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Data source structure
+</strong>
+<p>
+
+
+```{r checking the struture, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+str(tripdata_2022_03)
+str(tripdata_2022_04)
+str(tripdata_2022_05)
+str(tripdata_2022_06)
+str(tripdata_2022_07)
+str(tripdata_2022_08)
+str(tripdata_2022_09)
+str(tripdata_2022_10)
+str(tripdata_2022_11)
+str(tripdata_2022_12)
+str(tripdata_2023_01)
+str(tripdata_2023_02)
+```
+
+
+<br />
+
+
+<!-- PROCESS -->
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Process
+</h2>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+In the third data analysis phase - Process, we will process and clean the data, looking for duplicate, inaccurate, and incomplete data to dispose of any errors, inaccuracies, or possible inconsistencies. That ensures integrity in the data before analyzing it.
+</font>
+</p>
+
+
+<br />
+
+<p>
+<font size="3" face="helvetica">
+In this analysis, I will use the RStudio integrated development environment (IDE) (2023.03.0 Build 386) and the programming language R (Version 4.2.2), which is a tool with the ability to work in all data analysis process stages, as well as being a tool that allows work with large amounts of data.
+
+I will also use Tableau for data visualization, creating effective graphs and dashboards.I will also use Tableau, a powerful data visualization and business intelligence tool that helps people see and understand data through beautiful and intuitive dashboards.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Checking data
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Firstly, I will check the matching of the columns in each dataset, intending to join all datasets into a single set.
+</font>
+<p>
+
+
+```{r checking the columns matching, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+compare_df_cols(tripdata_2022_03, tripdata_2022_04, tripdata_2022_05, tripdata_2022_06, tripdata_2022_07, tripdata_2022_08, tripdata_2022_09, tripdata_2022_10, tripdata_2022_11, tripdata_2022_12, tripdata_2023_01, tripdata_2023_02)
+```
+
+<p>
+<font size="3" face="helvetica">
+All columns from the dataset show correspondence with their data type, proving data consistency. Now that we have the information that there is correspondence in the columns of the datasets, I will join all the datasets into a single one.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Transforming data
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Merging data
+</font>
+</strong>
+</p>
+
+
+```{r merging data, echo=TRUE}
+tripdata <- bind_rows(tripdata_2022_03, tripdata_2022_04, tripdata_2022_05, tripdata_2022_06, tripdata_2022_07, tripdata_2022_08, tripdata_2022_09, tripdata_2022_10, tripdata_2022_11, tripdata_2022_12, tripdata_2023_01, tripdata_2023_02)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Filtering, sorting and adding new columns
+</strong>
+</font>
+</p>
+
+
+
+<p>
+<font size="3" face="helvetica">
+Before I create the "ride_length" column to register the length of the trips, I will filter the dataset to confirm that values from started_at are less than values in ended_at.
+</font>
+</p>
+
+
+```{r checking values, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata %>%
+  filter(started_at > ended_at) %>%
+  summarise(rideable_type, started_at, ended_at)
+```
+
+
+<p>
+<font size="3" face="helvetica">
+Filtering the dataset, we found 101 records where the values from started_at are higher than values from ended_at. However, we can conclude that this is not the right way to represent the time of the trips. 
+</font>
+</p>
+
+
+<br>
+
+
+<p>
+<font size="3" face="helvetica">
+With that in mind, I will create a new dataset only to get these records to analyze them.
+</font>
+</p>
+
+```{r creating a new dataset, echo=TRUE, message=FALSE, warning=FALSE}
+incorrect_time <- tripdata %>%
+  filter(started_at > ended_at)
+```
+
+
+```{r analyzing dataset incorrect_time 1, echo=TRUE, message=FALSE, warning=FALSE}
+incorrect_time %>%
+  filter(started_at > ended_at) %>%
+  group_by(rideable_type) %>%
+  summarise(number_of_rides = n(), percent_of_rides = round(length(rideable_type) / nrow(incorrect_time) * 100, digits = 2))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Of 101 records, 73, or 72.28%, were from electric bikes, and 28, or 27.72%, were from classic bikes.
+</font>
+</p>  
+  
+
+<br />
+
+
+```{r analyzing dataset incorrect_time 2, echo=TRUE, message=FALSE, warning=FALSE}
+incorrect_time %>%
+  filter(started_at > ended_at) %>%
+  group_by(start_station_name, rideable_type) %>%
+  summarise(number_of_rides = n()) %>%
+  arrange(desc(number_of_rides)) %>%
+  print()
+```
+
+
+<p>
+<font size="3" face="helvetica">
+Here, we observe that from 73 electric bikes in that dataset, 24 were without stations' names, and 11 occurred in the same station, "Lincoln Ave & Roscoe St"; While for 28 classic bikes, we also have 12 occurrences in "Lincoln Ave & Roscoe St"; But that whole record for classic bikes we have station's name.
+</font>
+</p>  
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Note: This analysis is not our business task, remembering that our business task is to identify how casual riders and annual members use Cyclistic's bikes differently and not identify how occurred the incorrect input records in trips' time.
+</strong>
+</font>
+</p>  
+
+
+<p>
+<font size="3" face="helvetica">
+To avoid distractions from our business task, I will consider that the error occurred due to software or research imputation errors. 
+
+We can consider this as a future analysis because if we continue to get these errors, it can impact the accuracy of travel behavior models and lead to biases in the measures derived from the models.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Considering that it was an error caused by software or research imputation, to solve this problem, I will swap the values between started_at and ended_at so that I correctly have the trip times.
+</font>
+</p>
+
+
+```{r swaping values, echo=TRUE, message=FALSE, warning=FALSE}
+for (i in 1:nrow(tripdata)) {
+  if(tripdata[i,3] > tripdata[i,4]) {
+  x <- tripdata[i,3]
+  tripdata[i,3] <- tripdata[i,4]
+  tripdata[i,4] <- x
+  }
+}
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+After performing the data transformation, I will filter the dataset again to verify that I have the correct time values.
+</font>
+</p>
+
+
+```{r filtering tripdata, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata %>%
+  filter(started_at > ended_at)
+```
+
+
+<p>
+<font size="3" face="helvetica">
+Now, there are no more incorrect values in started_at and ended_at. After verifying the dataset, I will create the ride_length column.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Now, I will order the data through the variable (started_at), then I will create a column called (date) to record the trip date, and I will add other ones called (month, day, year, day_of_week, ride_length, and start_hour).
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong> 
+Note: The trip duration will be present in seconds.
+</strong>
+</font>
+</p>
+
+
+```{r sorting column started_at, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata <- tripdata %>%
+  arrange(started_at)
+```
+
+```{r create column date, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata <- tripdata %>%
+  mutate(date = format(as.Date(started_at)))
+```
+
+```{r creating new columns, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata <- tripdata %>%
+  mutate(month = format(as.Date(date), "%B")) %>%
+  mutate(day = format(as.Date(date), "%d")) %>%
+  mutate(year = format(as.Date(date), "%Y")) %>%
+  mutate(day_of_week = format(as.Date(date), "%A")) %>%
+  mutate(ride_length = difftime(ended_at, started_at)) %>%
+  mutate(start_hour = strftime(started_at, "%H"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+The values in month and day_of_week are in Portuguese. So I will translate them into English.
+</font>
+</p>
+
+
+<!-- Translating day_of_week -->
+
+```{r translating day_of_week, echo=TRUE, message=FALSE, warning=FALSE, include=FALSE}
+tripdata$day_of_week[tripdata$day_of_week=="domingo"] <- "Sunday"
+tripdata$day_of_week[tripdata$day_of_week=="segunda-feira"] <- "Monday"
+tripdata$day_of_week[tripdata$day_of_week=="terça-feira"] <- "Tuesday"
+tripdata$day_of_week[tripdata$day_of_week=="quarta-feira"] <- "Wednesday"
+tripdata$day_of_week[tripdata$day_of_week=="quinta-feira"] <- "Thursday"
+tripdata$day_of_week[tripdata$day_of_week=="sexta-feira"] <- "Friday"
+tripdata$day_of_week[tripdata$day_of_week=="sábado"] <- "Saturday"
+```
+
+
+<!-- Translating months -->
+
+
+```{r translating months, message=FALSE, warning=FALSE, include=FALSE, message=FALSE}
+tripdata$month[tripdata$month=="janeiro"] <- "January"
+tripdata$month[tripdata$month=="fevereiro"] <- "February"
+tripdata$month[tripdata$month=="março"] <- "March"
+tripdata$month[tripdata$month=="abril"] <- "April"
+tripdata$month[tripdata$month=="maio"] <- "May"
+tripdata$month[tripdata$month=="junho"] <- "June"
+tripdata$month[tripdata$month=="julho"] <- "July"
+tripdata$month[tripdata$month=="agosto"] <- "August"
+tripdata$month[tripdata$month=="setembro"] <- "September"
+tripdata$month[tripdata$month=="outubro"] <- "October"
+tripdata$month[tripdata$month=="novembro"] <- "November"
+tripdata$month[tripdata$month=="dezembro"] <- "December"
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Converting ride_length column data type
+</strong>
+</font>
+</p>
+
+
+```{r converting ride_length column data type, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata$ride_length <- as.numeric(as.character(tripdata$ride_length))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Checking dataset structure
+</strong>
+</font>
+</p>
+
+
+```{r checking dataset structure, echo=TRUE, message=FALSE, warning=FALSE}
+str(tripdata)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Checking dataset statistic summary
+</strong>
+</font>
+</p>
+
+
+```{r checking dataset statistic summary, echo=TRUE, message=FALSE, warning=FALSE}
+skim_without_charts(tripdata)
+```
+
+
+<p>
+<font size="3" face="helvetica">
+The summary informed us that the dataset contains empty data, missing data and that there is no duplicated data!
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+The summary also shows that the ride_length column contains a minimum of 0, which does not make sense for a ride duration of 0 seconds. So, in this analysis, I will consider rows just with trip duration starting from 60 seconds.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Making the dataset backup
+</strong>
+</font>
+</p>
+
+
+<p>
+<font size="3" face="helvetica">
+Before we perform any data cleaning process, I will create a dataset backup to ensure we have an original one.
+</font>
+</p>
+
+
+```{r making dataset backup}
+tripdata_v2 <- tripdata
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Removing values below 60 seconds from ride_length column
+</strong>
+</font>
+</p>
+
+
+```{r removing values minus than 60 seconds}
+tripdata_v2 <- tripdata_v2[tripdata_v2$ride_length >= 60,]
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Using the summary again, we can see that the minimum value from the "ride_length" column is now 60.
+</font>
+</p>
+
+
+```{r verifying ride_length column}
+summary(tripdata_v2$ride_length)
+```
+
+
+<br />
+
+
+<p>
+<font face="helvetica">
+<strong>
+Remove irrelevant data
+</strong>
+</font>
+</p>
+
+
+<p>
+<font size="3" face="helvetica">
+For this analysis, I considered the following variables irrelevant. So, I will remove them.
+</font>
+</p>
+
+
+```{r removing columns, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 <- tripdata_v2 %>%
+  select(-c(start_lat, start_lng, end_lat, end_lng))
+```
+
+
+<br />
+
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Converting empty data to missing data (NAs)
+</strong>
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+The statistic summary informed us that the dataset contains empty data. Therefore, I will convert them into NAs to ease the data-cleaning process.
+</font>
+</p>
+
+
+```{r converting empty data into missing data (NAs), echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2[tripdata_v2 == ''] <- NA
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Excluding missing data (NAs)
+</strong>
+</font>
+</p>
+
+<p>
+<font size="3" face="helvetica">
+After the data transformation, I will remove all missing data.
+</font>
+</p>
+
+
+```{r removing empty data (NAs), echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 <- na.omit(tripdata_v2)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Checking the dataset once again
+</strong>
+</font>
+</p>
+
+```{r checking the structure, echo=TRUE, message=FALSE, warning=FALSE}
+str(tripdata_v2)
+```
+
+
+```{r checking the statistic summary, echo=TRUE, message=FALSE, warning=FALSE}
+skim_without_charts(tripdata_v2)
+```
+
+
+<p>
+<font size="3" face="helvetica">
+Once the data are consistent and complete, it is ready to be analyzed.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Documentation of any cleaning or manipulation of data
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+In this [link](https://github.com/TndOliveira/Cyclistic-Case-Study/blob/main/CHANGELOG.md) we can find the Changelog documentation.
+</font>
+</p>
+
+
+<!-- Analyze -->
+
+
+<br />
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Analyze
+</h2>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+In the fourth data analysis process - Analyze, the data are already rightly stored and prepared to be analyzed. In this phase, I will analyze the data to find insights and possible solutions to the business task.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Identify trends and relationship
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Descriptive analysis in ride_length column
+</strong>
+</font>
+</p>
+
+
+```{r summarising the ride_length column, echo=TRUE, message=FALSE, warning=FALSE}
+summary(tripdata_v2$ride_length)
+```
+
+
+<br />
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Comparing casual users and annual members
+</strong>
+</font>
+</p>
+
+
+```{r aggregating columns, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  aggregate(ride_length ~ member_casual, FUN = mean)
+
+tripdata_v2 %>%
+  aggregate(ride_length ~ member_casual, FUN = median)
+
+tripdata_v2 %>%
+  aggregate(ride_length ~ member_casual, FUN = max)
+
+tripdata_v2 %>%
+  aggregate(ride_length ~ member_casual, FUN = min)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by user type
+</strong>
+</font>
+</p>
+
+
+```{r analyzing user type, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual) %>%
+  summarise(number_of_rides = n(), percent_of_rides = round(length(ride_id) / nrow(tripdata_v2), digits = 4) * 100)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* From 4.416.370 observations, we have 2.651.406 annual members, which represents 60.04%, and 1.764.964 casual users, which represents 39.96%, meaning that we have more annual members using Cyclistic shared bikes.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by month
+</strong>
+</font>
+</p>
+
+
+```{r analyzing month, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, month) %>%
+  summarise(number_of_rides = n(), percent_of_rides = round(length(ride_id) / nrow(tripdata_v2), digits = 4) * 100) %>%
+  print(n = 24)
+```
+
+
+<p>
+<font size="3" face="helvetica">
+As we see above, the months are out of order. So, I will sort them.
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Sorting the column month
+</strong>
+</font>
+</p>
+
+
+```{r ordering month column}
+tripdata_v2$month <- ordered(tripdata_v2$month, levels=c("March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January", "February"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+I will also sort the column day_of_week.
+</font>
+</p>
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Sorting the column day_of_week
+</strong>
+</font>
+</p>
+
+
+```{r ordering day_of_week column, echo=TRUE, message=FALSE}
+tripdata_v2$day_of_week <- ordered(tripdata_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+Now with the columns sorted, we can analyze the summary.
+</font>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by month
+</strong>
+</font>
+</p>
+
+
+```{r analyzing month ordered, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, month) %>%
+  summarise(number_of_rides = n(), percent_of_rides = round(length(ride_id) / nrow(tripdata_v2), digits = 4) * 100) %>%
+  print(n = 24)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Based on months, annual members were the most frequent users of Cyclistic bike-sharing service in the last 12 months observed.
+
+* June, July, and August, representing the summer period, recorded the highest percentage of trips by annual members, with 7.30%, 7.34%, and 7.44%, respectively.
+
+* The lowest percentages of trips were recorded by casual users in December, January, and February, representing the winter period, with 0.70%, 0.66%, and 0.73%.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by weekday
+</strong>
+</font>
+</p>
+
+
+```{r analyzing day_of_week, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, day_of_week) %>%
+  summarise(number_of_rides = n(), percent_of_rides = round(length(ride_id) / nrow(tripdata_v2), digits = 4) * 100)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Annual members used shared bikes more frequently on weekdays, while casual users used them most at weekends.
+
+* Tuesday, Wednesday, and Thursday recorded the highest percentages of weekday trips with 9.64%, 9.50%, and 9.49%, respectively, all with annual members exceeding 400,000 rides.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by hour
+</strong>
+</font>
+</p>
+
+
+```{r analyzing hour, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(start_hour) %>%
+  summarise(number_of_rides = n(),
+            member = sum(member_casual == "member"),
+            casual = sum(member_casual == "casual"),
+            difference = abs(sum(member_casual == "member") - sum(member_casual == "casual"))) %>%
+  print(n = 24)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* The lowest differences in shared bike use between casual users and annual members were from 10:00 p.m. until 04:00 a.m.
+
+* Annual members have the highest number of trips from 04:00 a.m. to 10:00 p.m., compared to casual users from 11:00 p.m. to 03:00 a.m.
+
+* The highest number of trips was reached at 05:00 p.m. by annual members, which came close to 300.000 trips, and by casual users, which exceeded 150.000.
+
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the average ride length by month
+</strong>
+</font>
+</p>
+
+
+```{r analyzing average month, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, month) %>%
+  summarise(average_ride_length = round(mean(ride_length))) %>%
+  print(n = 24)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Looking at the last 12 months of data, we can see that the average ride length was higher for casual users than for annual members in all months.
+
+* In the period observed, annual members did not reach 1.000 seconds, or 16 minutes and 40 seconds of travel time.
+
+* The highest records were in the spring months with casual users, over 1.500 seconds or 25 minutes.
+  
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the average ride length by weekday
+</strong>
+</font>
+</p>
+
+
+```{r analyzing average day_of_week, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, day_of_week) %>%
+  summarise(average_ride_length = round(mean(ride_length)))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Casual users tend to use shared bikes with an average ride length higher than annual members on all days of the week.
+
+* On all days of the week, the average ride length for annual members was less than 1.000 seconds, or 16 minutes and 40 seconds.
+
+* The highest averages were achieved on Sundays and Saturdays with casual users, exceeding 1.500 seconds or 25 minutes, respectively.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the number of rides by bicycle type
+</strong>
+</font>
+</p>
+
+
+```{r analyzing bicycle_type, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, rideable_type) %>%
+  summarise(number_of_rides = n(), percent_of_ride = round(length(ride_id) / nrow(tripdata_v2) * 100, digits = 2))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* From the total of 4.416.370 observations, the annual members didn't use the docked bike, which presented only 3.96% used by casual users.
+
+* Both annual members and casual users prefer classic bicycles: annual members have made more than 1.500.000 trips, representing 39.26% of the total number of trips made, compared with 20.16% for casual users, who made almost 900.000 journeys.
+
+* With electric bikes, annual members correspond to 20.78%, compared to 15.85% from casual users.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the average ride length by bicycle type
+</strong>
+</font>
+</p>
+
+
+```{r analyzing average bicycle, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+    group_by(member_casual, rideable_type) %>%
+    summarise(ride_length = round(mean(ride_length), 2))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Casual users used docked bikes with longer average trips than other types of bikes, such as classic and electric bikes.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the 10 most used stations by casual users
+</strong>
+</font>
+</p>
+
+
+```{r analyzing stations casual, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, start_station_name) %>%
+  filter(member_casual == "casual") %>%
+  summarise(number_of_rides = n()) %>%
+  arrange(desc(number_of_rides)) %>%
+  head(10)
+```
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* All 10 of the most used stations by casual users are close to tourist attractions in Chicago.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Analyzing the 10 most used stations by annual members
+</strong>
+</font>
+</p>
+
+
+```{r analyzing stations members, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, start_station_name) %>%
+  filter(member_casual == "member") %>%
+  summarise(number_of_rides = n()) %>%
+  arrange(desc(number_of_rides)) %>%
+  head(10)
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* The top 10 stations used by annual members are all near commercial, residential and educational areas in Chicago.
+
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Summary of the Analysis
+</strong>
+</h3>
+
+
+<br />
+
+
+* From 4.416.370 observations, we have 2.651.406 annual members, which represents 60.04%, and 1.764.964 casual users, which represents 39.96%, meaning that we have more annual members using Cyclistic's shared bikes.
+
+* Annual members have used shared bikes with higher frequency during the days of the week, while casual users used them most during the weekend.
+
+* Casual users usually use shared bikes with an average trip ride length higher than annual members on all days of the week.
+
+* Annual members have the highest trip number from 04:00 a.m. until 10:00 p.m., compared to casual users, from 11:00 p.m. until 03:00 a.m.
+
+* Both Annual members and casual users have a preference for classic bikes. Annual members have realized more than 1.500.000 trips, representing 39.26% of total trips made, compared to 20.16% from casual users who made almost 900.000 journeys.
+
+* All 10 of the most used stations by casual users are close to tourist attractions in Chicago.
+
+* The top 10 stations used by annual members are all near commercial, residential and educational areas in Chicago.
+
+
+<br />
+
+
+<!-- SHARE -->
+
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Share
+</h2>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+In the fifth data analysis process step - Share, after I have gained the insights in the previous step, I will create compelling data visualizations to share my findings. So I will summarize the results using clear and attractive visuals to help stakeholders understand the problem's solution.
+</font>
+</p>
+
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Removing scientific notations
+</strong>
+</font>
+</p>
+
+
+```{r removing scientific notations, echo=TRUE, message=FALSE}
+options(scipen = 999)
+```
+
+
+<br />
+
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Data visualizations
+</strong>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Number of rides by user type
+</strong>
+</font>
+</p>
+
+
+```{r visualizing user type, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual) %>%
+  summarise(number_of_rides = n()) %>%
+  ggplot(aes(x = member_casual, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = 'dodge') +
+  labs(title="Total number of rides by user type",
+       caption = "Source: Motivate International Inc.",
+       x = "Member vs Casual", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+
+* In this graph, we can see that Cyclistic has more annual members than casual users.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Number of rides by month
+</strong>
+</font>
+</p>
+
+
+
+```{r visualizing month, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, month) %>%
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
+  arrange(member_casual, month) %>%
+  ggplot(aes(x = month, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  theme(axis.text.x = element_text(angle = 45)) +
+  labs(title = "Number of rides by month",
+       caption = "Source: Motivate International Inc.", 
+       x = "Month", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+
+<p>
+<font size="3" face="helvetica">
+
+* The graphic above shows that annual members were the most frequent users of shared bikes in all months observed.
+
+* The summer period has recorded the highest number of rides.
+
+* The lowest number of rides was in the winter.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Number of rides by weekday
+</strong>
+</font>
+</p>
+
+
+```{r visualizing day_of_week, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, day_of_week) %>%
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
+  arrange(member_casual, day_of_week) %>%
+  ggplot(aes(x = day_of_week, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title = "Number of rides by weekday",
+  caption = "Source: Motivate International Inc.", 
+  x = "Weekday", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Regarding weekdays, the graph shows that annual members used shared bikes most often on weekdays.
+
+* Casual users use bikes most frequently on weekends.
+  
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Number of rides by hour
+</strong>
+</font>
+</p>
+
+
+```{r visualizing hour, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, start_hour) %>%
+  summarise(number_of_rides = n()) %>%
+  ggplot(aes(x = start_hour, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title = "Number of rides by start hour",
+       caption = "Source: Motivate International Inc.",
+       x = "Hour", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+<p>
+<font size="3" face="helvetica">
+
+* Annual members use the bikes most often from 06:00 a.m. until 09:00 a.m. and from 03:00 p.m. until 07:00 p.m.
+
+* From 11:00 p.m. to 03:00 a.m., casual users outnumbered annual members in the number of trips.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Average ride length by month
+</strong>
+</font>
+</p>
+
+
+```{r visualizing average month, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, month) %>%
+  summarise(average_ride_length = mean(ride_length)) %>%
+  ggplot(aes(x = month, y = average_ride_length, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  theme(axis.text.x = element_text(angle = 45)) +
+  labs(title = "Average ride length by month",
+       caption = "Source: Motivate International Inc.", 
+       x = "Month", y = "Average Ride Length (sec)", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+
+* The average ride length made by casual users was higher than that of annual members in all the months observed.
+
+* The spring months have recorded the highest average ride length.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Average ride length by weekday
+</strong>
+</font>
+</p>
+
+
+```{r visualizing average day_of_week, echo=TRUE, message=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, day_of_week) %>%
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
+  arrange(member_casual, day_of_week) %>%
+  ggplot(aes(x = day_of_week, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title = "Average ride length by weekday",
+  caption = "Source: Motivate International Inc.", 
+  x = "Weekday", y = "Average Ride Length (sec)", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+<p>
+<font size="3" face="helvetica">
+
+* In the graph above, casual users used shared bikes for a longer average ride length than annual members on all weekdays.
+
+* The highest average ride length has recorded during the weekends.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Number of rides by bicycle type
+</strong>
+</font>
+</p>
+
+
+```{r visualizing bicycle type, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, rideable_type) %>%
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
+  ggplot(aes(x=member_casual, y=number_of_rides, fill=member_casual)) +
+    geom_col(position = "dodge") +
+  facet_wrap(~rideable_type) +
+  labs(title = "Number of rides by bicycle type",
+       caption = "Source: Motivate International Inc.",
+       x = "Member Casual", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+<p>
+<font size="3" face="helvetica">
+
+* In this graphic, we can see that only casual users used docked bikes.
+
+* Both casual users and annual members have a preference for classic bikes.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+Average ride length by bicycle type
+</strong>
+</font>
+</p>
+
+
+```{r visualizing average bicycle, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, rideable_type) %>%
+  summarise(average_ride_length = mean(ride_length)) %>%
+  ggplot(aes(x = rideable_type, y = average_ride_length, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title = "Average ride length by bicycle type",
+       caption = "Source: Motivate International Inc.",
+       x = "Bicycle type", y = "Average Ride Length (sec)", fill = "User Type") +
+  scale_fill_manual(values = c("casual" = "#5DADE2", "member" = "#21618C"))
+```
+
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Casual users use docked bikes with an average ride length higher than classic and electric bikes.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+10 most used stations by casual users
+</strong>
+</font>
+</p>
+
+
+```{r visualizing stations casual, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, start_station_name) %>%
+  filter(member_casual == "casual") %>%
+  summarise(number_of_rides = n()) %>%
+  arrange(desc(number_of_rides)) %>%
+  head(10) %>%
+  ggplot(aes(x= reorder(start_station_name, number_of_rides), y=number_of_rides, fill=member_casual)) +
+  scale_y_continuous(breaks = seq(0, 60000, 9000)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(title = "10 most used stations by casual",
+       caption = "Source: Motivate International Inc.",
+       x = "Station Name", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("casual" = "#5DADE2"))
+```
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* This chart shows that the top 10 stations used by casual users over the last 12 months are all located near tourist attractions in Chicago.
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+10 most used stations by annual members
+</strong>
+</font>
+</p>
+
+
+```{r visualizing stations members, echo=TRUE, message=FALSE, warning=FALSE}
+tripdata_v2 %>%
+  group_by(member_casual, start_station_name) %>%
+  filter(member_casual == "member") %>%
+  summarise(number_of_rides = n()) %>%
+  arrange(desc(number_of_rides)) %>%
+  head(10) %>%
+  ggplot(aes(x= reorder(start_station_name, number_of_rides), y=number_of_rides, fill=member_casual)) +
+  scale_y_continuous(breaks = seq(0, 25000, 5000)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(title = "10 most used stations by member",
+       caption = "Source: Motivate International Inc.",
+       x = "Station Name", y = "Number of Rides", fill = "User Type") +
+  scale_fill_manual(values = c ("member" = "#21618C"))
+```
+
+
+<br />
+
+<p>
+<font size="3" face="helvetica">
+
+* The graph shows that the top 10 stations used by annual members are near commercial, residential, and educational areas in Chicago.
+
+</font>
+</p>
+
+
+<br />
+<br />
+
+
+<h4>
+<font size="3" face="helvetica">
+<strong>
+Exporting the clean dataset
+</strong>
+</font>
+</h4>
+
+
+<p>
+<font size="3" face="helvetica">
+I will export my cleaned dataset tripdata_v2, intending to load it in Tableau to visualize our data and create a dashboard.
+</font>
+</p>
+
+
+<p>
+<font size="3" face="helvetica">
+```{r eval=FALSE, echo=TRUE}
+write.csv(tripdata_v2, file = 'path/tripdata_v2.csv')
+```
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+The dashboard is in the following [link](https://public.tableau.com/app/profile/tauan.oliveira/viz/GoogleCapstone_Cyclistic/Dashboard)
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Key Findings
+</strong>
+</h3>
+
+
+<br />
+
+
+<h4>
+<font face="helvetica">
+<strong>
+What story do the data tell?
+</strong>
+</font>
+</h4>
+
+
+<br />
+
+
+<h5>
+<font size="3" face="helvetica">
+<strong>
+According to the analysis, the data tell us:
+</strong>
+</font>
+</h5>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Cyclistic has about 60.04% annual members and about 39.96% casual users. However, Cyclistic is mainly composed of Annual members.
+
+* Throughout the 12-month data period, annual members were the most frequent riders, with the highest number of rides in the summer and the lowest in the winter. 
+
+* During the week, Cyclistic has more than 500,000 cyclists making trips daily, with the highest number of trips made in the afternoon and the higher average trip duration on weekends.
+
+* Annual members and casual users have a preference for classic bikes.
+
+</font>
+</p>
+
+
+<br />
+
+
+<h4>
+<font face="helvetica">
+<strong>
+How do annual members and casual users use Cyclistic bikes differently?
+</strong>
+</font>
+</h4>
+
+
+<br />
+
+
+<h5>
+<font size="3" face="helvetica">
+<strong>
+The cyclists differ in the following way:
+</strong>
+</font>
+</h5>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Annual members use Cyclistic bikes during the week from 06:00 a.m. to 09:00 a.m. and from 03:00 p.m. to 07:00 p.m. at stations close to commercial, residential, and educational institutions areas such as universities and schools.
+
+* Casual users take longer trips, ride more frequently on weekends, all at stations close to tourist attractions, and use Cyclistic bikes more than annual members, generally from 11:00 p.m. to 03:00 a.m.
+
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Conclusion 
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+These findings allow us to conclude that annual members exhibit behaviors that indicate that they are customers who use Cyclistic bikes to go to work, educational institutions, and their homes.
+
+Regarding casual users, some trends show that they are customers who use Cyclistic bikes for leisure and tourism, visiting Chicago's major tourist attractions.
+
+</font>
+</p>
+
+
+<br />
+
+
+
+<!-- ACT -->
+
+
+
+<h2
+  style="background: linear-gradient(to bottom, rgba(177,212,247,1) 0%,rgba(113,185,233,1) 49%,rgba(113,185,233,1) 51%,rgba(177,212,247,1) 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d4f7', endColorstr='#b1d4f7',GradientType=0 ); /* IE6-9 */
+  font-family:helvetica;
+  border-radius: 40px 40px;
+  color: white;
+  height: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;"
+    align="center"> Act
+</h2>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+In the final step of the data analysis process - Act, I will provide stakeholders with three recommendations based on the findings so that they can make data-driven decisions.
+</font>
+</p>
+
+
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Recommendations
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+1. Since casual users have two options for pricing plans: single-ride passes and full-day passes, the first recommendation would be to create a new weekend membership plan, as casual users tend to use Cyclistic's bikes more frequently during the weekend.
+
+2. I also recommend creating another member plan for the months in the summer period, a summer plan, as casual users reached the highest number of rides in that period.
+
+3. The third recommendation would make partnerships with hotels, restaurants, and tourist attractions during the summer period, offering benefits for casual users when becoming members.
+
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+Extra recommendations:
+
+4. Increasing the number of classic bikes during the summer, as we know, we have a peak in the summer, and casual users and annual members prefer classic bikes.
+
+5. Implement a reward program in the app, especially for members, where members earn points and accumulate them in their account for rewards to redeem later or exchange for extra time. This reward program can encourage casual users to become members as they make longer trips.
+
+</font>
+</p>
+
+
+<br />
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Further Analysis
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+Having carried out the analysis, I'd like to point out that there are possibilities for further exploration, as the dataset did not include variables such as age, genre, and others, and we also have other ways of gaining more complete insights as I will mention below:
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+* Gather more data: (e.g. age, gender, address, prices) will give us more complete insights.
+
+What is the age distribution of cyclists in the data?
+How does the plan price affect the choice of users?
+
+* Use external datasets: (e.g. Chicago temperature, Chicago public transportation).
+
+May casual users be more likely to convert to annual members if Cyclistic establishes integration of cycling and public 
+transportation in the member plan?
+
+* Conduct a survey: Ask users relevant questions.
+
+What is your primary reason for cycling? (e.g. commuting, exercise, leisure)?
+Do you use any other modes of transportation with cycling?
+How satisfied are you with the cycling infrastructure in your area?
+
+</font>
+</p>
+
+
+<br />
+<br />
+
+
+<h3>
+<font face="helvetica">
+<strong>
+Slide Presentation
+</strong>
+</font>
+</h3>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+In this [link](https://docs.google.com/presentation/d/1Xle5LL3M5HYpeVHckAZl9gSboXSB8qSKlNrfsPda5ps/edit#slide=id.gc6f9e470d_0_0) you can see the slide presentation
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+
+So, I would like to thank Google, Coursera, and others involved in this program, where I've dedicated a considerable time to gaining more knowledge, learning new skills and tools, and increasing my interest in the field, which offers many opportunities for both personal and professional growth. Thank you so much!
+
+</font>
+</p>
+
+
+<br />
+
+
+<p>
+<font size="3" face="helvetica">
+<strong>
+
+Thank you for your time! Your feedback is welcome!
+
+</strong>
+</font>
+</p>
+
+<br />
+<br />
