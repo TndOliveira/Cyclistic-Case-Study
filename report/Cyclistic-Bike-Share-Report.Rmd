@@ -67,19 +67,6 @@ In this project, I will perform a case study available by [Projeto Final de Data
 </p>
 
 
-<!-- Scenario -->
-
-
-<h3 style=font-family:helvetica><strong> Scenario </strong></h3><br />
-
-
-<p>
-<font size="3" face="helvetica"> 
-You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company's success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.
-</font>
-</p>
-
-<br />
 
 
 <!-- ASK -->
@@ -117,6 +104,23 @@ The first step in the data analysis process is the - Ask phase. To solve this pr
 
 
 <h3 style=font-family:helvetica><strong> Understanding the context </strong></h3><br />
+
+
+<!-- Scenario -->
+
+
+<h3 style=font-family:helvetica><strong> Scenario </strong></h3><br />
+
+
+<p>
+<font size="3" face="helvetica"> 
+You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company's success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.
+</font>
+</p>
+
+
+<br />
+
 
 <p>
 <font size="3" face="helvetica">
@@ -833,48 +837,6 @@ tripdata <- tripdata %>%
   mutate(ride_length = difftime(ended_at, started_at)) %>%
   mutate(start_hour = strftime(started_at, "%H"))
 ```
-
-
-<p>
-<font size="3" face="helvetica">
-The values in month and day_of_week are in Portuguese. So, I will translate them into English.
-</font>
-</p>
-
-
-<!-- Translating day_of_week -->
-
-```{r translating day_of_week, echo=TRUE, message=FALSE, warning=FALSE, include=FALSE}
-tripdata$day_of_week[tripdata$day_of_week=="domingo"] <- "Sunday"
-tripdata$day_of_week[tripdata$day_of_week=="segunda-feira"] <- "Monday"
-tripdata$day_of_week[tripdata$day_of_week=="terça-feira"] <- "Tuesday"
-tripdata$day_of_week[tripdata$day_of_week=="quarta-feira"] <- "Wednesday"
-tripdata$day_of_week[tripdata$day_of_week=="quinta-feira"] <- "Thursday"
-tripdata$day_of_week[tripdata$day_of_week=="sexta-feira"] <- "Friday"
-tripdata$day_of_week[tripdata$day_of_week=="sábado"] <- "Saturday"
-```
-
-
-<!-- Translating months -->
-
-
-```{r translating months, message=FALSE, warning=FALSE, include=FALSE, message=FALSE}
-tripdata$month[tripdata$month=="janeiro"] <- "January"
-tripdata$month[tripdata$month=="fevereiro"] <- "February"
-tripdata$month[tripdata$month=="março"] <- "March"
-tripdata$month[tripdata$month=="abril"] <- "April"
-tripdata$month[tripdata$month=="maio"] <- "May"
-tripdata$month[tripdata$month=="junho"] <- "June"
-tripdata$month[tripdata$month=="julho"] <- "July"
-tripdata$month[tripdata$month=="agosto"] <- "August"
-tripdata$month[tripdata$month=="setembro"] <- "September"
-tripdata$month[tripdata$month=="outubro"] <- "October"
-tripdata$month[tripdata$month=="novembro"] <- "November"
-tripdata$month[tripdata$month=="dezembro"] <- "December"
-```
-
-
-<br />
 
 
 <p>
